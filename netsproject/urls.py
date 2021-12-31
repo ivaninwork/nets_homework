@@ -1,4 +1,4 @@
-"""composeexample URL Configuration
+"""simple_app URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
 Examples:
@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from django.urls import path, include
+
+from simple_app.views import index, profile
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/profile/', profile),
+    url(r'^$', index),
 ]

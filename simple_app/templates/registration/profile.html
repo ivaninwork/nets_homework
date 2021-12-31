@@ -1,0 +1,11 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    {% if user %}
+            <h1> First Name: {{ user.first_name }} </h1>
+            <h1> Last Name: {{ user.last_name }} </h1>
+            <h1> Email: {{ user.email }} </h1>
+    {% else %}
+        Please <a href="/accounts/login">login</a>
+    {% endif %}
+{% endblock %}
