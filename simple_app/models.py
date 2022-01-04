@@ -1,7 +1,10 @@
 from django.db import models
 
-# Create your models here.
 
-class Username(models.Model):
-    hostname = models.CharField(max_length=32)
-    timestamp = models.DateTimeField(auto_now_add=True)
+class Game(models.Model):
+
+    class Meta:
+        app_label = 'simple_app'
+
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=300)

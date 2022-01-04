@@ -18,10 +18,13 @@ from django.contrib import admin
 
 from django.urls import path, include
 
-from simple_app.views import index, profile
+from simple_app.views import index, profile, games, signup, create_game
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^games/', games),
+    url(r'^create_game/', create_game),
+    url(r'^accounts/signup/$', signup, name='signup'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^accounts/profile/', profile),
     url(r'^$', index),

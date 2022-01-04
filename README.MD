@@ -1,61 +1,16 @@
-# Dockerized Django application
+# Simple app Play.Together
 
-![Docker plus Django plus Codefresh](docker-django-codefresh.jpg)
+Докерезированное джанго приложение для создания игр с друзьями
 
-This is an example Python application that uses Django, pip and Docker.
-It is packaged using Codefresh.
+## Запуск
 
-More details can be found in [the documentation page](https://codefresh.io/docs/docs/learn-by-example/python/django/).
-
-
-
-## Instructions
-
-To install dependencies 
-
+1. Запустить контейнеры с приложением и базой:
 ```
-pip install -r requirements.txt 
+./start.sh
 ```
-
-## To run tests
-
+2. Получить при помощи `docker ps` id образа nets-home-project_web
+3. Выполнить создание дефолтных пользователей и выполнение миграций:
 ```
-python -m unittest composeexample.utils
+./create_super.sh <id from 2nd step>
 ```
-
-## To run the webapp manually
-
-```
-python manage.py runserver 0.0.0.0:8000
-```
-
-....and navigate your browser to  http://localhost:8000/
-
-## To create a docker image
-
-```
-docker build -t django-app .
-```
-
-
-## To run the docker image
-
-```
-docker run -p 8000:8000 django-app
-```
-
-
-## To use this project in Codefresh 
-
-There is also a [codefresh.yml](codefresh.yml) for easy usage with the [Codefresh](codefresh.io) CI/CD platform.
-
-
-Enjoy!
-
-
-
-
-
-
-
-
+4. Приложение доступно по адресу localhost:8000

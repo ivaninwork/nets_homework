@@ -1,0 +1,26 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        {% if user %}
+            <h2>Create new public game</h2>
+            <form method="post">
+                {% csrf_token %}
+                  <table>
+                    {% for field in form %}
+                      <tr>
+                        <th>{{field.label_tag}}</th>
+                        <td>
+                          {{ field.errors }}
+                          {{ field }}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        {% else %}
+            Please <a href="/accounts/login">login</a>
+        {% endif %}
+    </div>
+{% endblock %}
